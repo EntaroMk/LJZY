@@ -1,0 +1,43 @@
+server:
+  port: 8888
+
+spring:
+  # 配置数据源
+  datasource:
+    url: jdbc:mysql://localhost:3306/hrm?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2b8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 扫描通用枚举包
+  type-enums-package: com.qiujie.enums
+
+
+file:
+  upload:
+    path: D:/MyRoom/资料/Java项目/007_SpringBoot_Vue_人事管理系统/人力资源管理系统/hrm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
