@@ -24,7 +24,7 @@ mybatis-plus:
 
 file:
   upload:
-    path: D:/MyRoom/资料/Java项目/007_SpringBoot_Vue_人事管理系统/人力资源管理系统/hrm
+    path: D:\\A0res
 
 
 
