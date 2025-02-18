@@ -42,6 +42,6 @@ public class Response {
     }
 
     public static ResponseDTO error(BaseEnum<T> e) {
-        return new ResponseDTO((BusinessStatusEnum) e);
+        return new ResponseDTO(e);
     }
 }

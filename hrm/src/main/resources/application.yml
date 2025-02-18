@@ -24,9 +24,7 @@ mybatis-plus:
 
 file:
   upload:
-    path: D:\\A0res
-
-
+    path: D:\A0res
 
 
 

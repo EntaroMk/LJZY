@@ -10,12 +10,6 @@ export default {
         icon: 's-home',
         path: '/home',
         children: []
-      },
-      {
-        path: '/word-upload',
-        name: 'WordUpload',
-        label: 'Word文件上传',
-        icon: 'el-icon-upload'
       }
     ]
   },
