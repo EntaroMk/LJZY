@@ -1,57 +1,81 @@
 package com.qiujie.dto;
 
-import com.qiujie.enums.BaseEnum;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.apache.poi.ss.formula.functions.T;
+import com.qiujie.enums.BusinessStatusEnum;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ApiModel(value = "数据传输对象", description = "")
-public class ResponseDTO {
-    @ApiModelProperty("状态码")
-    private int code;
+import java.util.List;
 
-    @ApiModelProperty("响应消息")
+public class ResponseDTO<T> {
+    private boolean success;
     private String message;
+    private T data;
 
-    @ApiModelProperty("响应数据")
-    private Object data;
+    public ResponseDTO(BusinessStatusEnum businessStatusEnum) {
+    }
 
-    @ApiModelProperty("token")
-    private String token;
+    public ResponseDTO(Integer code, String message) {
+    }
 
-    public ResponseDTO(int code, String message){
-        this.code = code;
+    public ResponseDTO(BusinessStatusEnum businessStatusEnum, Object data) {
+    }
+
+    public ResponseDTO(BusinessStatusEnum businessStatusEnum, Object data, String token) {
+    }
+
+    public ResponseDTO(Integer code, String message, Object data) {
+    }
+
+    public ResponseDTO() {
+
+    }
+
+    public static <T> ResponseDTO<T> success() {
+        return success(null);
+    }
+
+    public static <T> ResponseDTO<T> success(T data) {
+        return success("操作成功", data);
+    }
+
+    public static <T> ResponseDTO<T> success(String message, T data) {
+        ResponseDTO<T> response = new ResponseDTO<>();
+        response.setSuccess(true);
+        response.setMessage(message);
+        response.setData(data);
+        return response;
+    }
+
+    public static <T> ResponseDTO<T> error() {
+        return error("操作失败");
+    }
+
+    public static <T> ResponseDTO<T> error(String message) {
+        ResponseDTO<T> response = new ResponseDTO<>();
+        response.setSuccess(false);
+        response.setMessage(message);
+        return response;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
         this.message = message;
     }
 
-    public ResponseDTO(int code,String message,Object data){
-        this.code = code;
-        this.message = message;
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
         this.data = data;
     }
-
-    public ResponseDTO(BaseEnum<T> e){
-        this.code = e.getCode();
-        this.message = e.getMessage();
-    }
-
-    public ResponseDTO(BaseEnum<T> e, Object data){
-        this.code = e.getCode();
-        this.message = e.getMessage();
-        this.data = data;
-    }
-
-    public ResponseDTO(BaseEnum<T> e, Object data, String token){
-        this.code = e.getCode();
-        this.message = e.getMessage();
-        this.data = data;
-        this.token = token;
-    }
-
 }

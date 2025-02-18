@@ -2,6 +2,7 @@ import Vue from 'vue' // 引入vue
 import VueRouter from 'vue-router' // 引入vue-router
 import store from '../store'
 import { getStaffMenu } from '../api/menu'
+import WordUpload from '@/views/WordUpload.vue'
 
 // 解决当重复跳转一个路由的报错问题
 // 获取原型对象上的push函数
@@ -16,7 +17,13 @@ Vue.use(VueRouter) // 全局引入路由
 // 静态路由
 const routes = [{
   path: '/login', name: 'login', component: () => import('../views/login')
-}]
+},
+{
+  path: '/word-upload',
+  name: 'WordUpload',
+  component: WordUpload
+}
+]
 
 // router实例
 const router = new VueRouter({
