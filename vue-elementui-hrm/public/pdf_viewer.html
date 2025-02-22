@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF 查看器</title>
+    <!-- 引入 PDFObject 库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.7/pdfobject.min.js"></script>
+</head>
+
+<body>
+<div id="pdf-container"></div>
+
+<script>
+  // 使用 PDFObject 嵌入 PDF 文件
+  PDFObject.embed("D:\\pdftest\\pt.pdf", "#pdf-container");
+</script>
+</body>
+
+</html>
